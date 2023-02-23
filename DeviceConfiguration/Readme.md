@@ -336,7 +336,7 @@ Successful authentication requires:
 Run the script by passing the required data as parameters, which are:
 - the path to a valid config profile in JSON format
 - the tenant ID or default DNS name
-- the AppId of the App Reg (cna be found on its Overview tab)
+- the AppId of the App Reg (can be found on its Overview tab)
 - the thumbprint of your certificate (this can be found on the Certificates and secrets tab of the App Reg once it has been added
 
 ```PowerShell
