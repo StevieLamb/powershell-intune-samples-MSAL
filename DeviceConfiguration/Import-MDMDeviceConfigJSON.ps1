@@ -1,5 +1,6 @@
 <#
     .SYNOPSIS
+    Creates a new Intune device configuration profile from a JSON file
     Modified version of script found at
     https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceConfiguration_Import_FromJSON.ps1
 
