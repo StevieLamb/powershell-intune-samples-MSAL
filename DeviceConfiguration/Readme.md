@@ -324,24 +324,27 @@ Get-DeviceConfigurationPolicy -Name "Android"
 
 ```
 
-### 5. DeviceConfiguration_Import_FromJSON.ps1
+### 5. Import-MDMDeviceConfigJSON.ps1
 This script imports from a JSON file a device configuration policy into the Intune Service that you have authenticated with.
+Successful authentication requires:
+- The module MSAL.PS must be installed. Cna be acquired from PSGallery
+- An App registration in the Azure AD tenant associated with the Intune tenant
+- MS Graph permission granted to the app, type Application, DeviceManagementConfiguration.ReadWrite.All
+- A certificate keypair, installed on the computer running the script, and associated with the App Registration
+  - each user of the script should have their own keypair associated with the app
 
-When you run the script it will prompt for a path to a .json file, if the path is valid the Add-DeviceConfigurationPolicy function will be called.
+Run the script by passing the required data as parameters, which are:
+- the path to a valid config profile in JSON format
+- the tenant ID or default DNS name
+- the AppId of the App Reg (cna be found on its Overview tab)
+- the thumbprint of your certificate (this can be found on the Certificates and secrets tab of the App Reg once it has been added
 
 ```PowerShell
-$ImportPath = Read-Host -Prompt "Please specify a path to a JSON file to import data from e.g. C:\IntuneOutput\Policies\policy.json"
-
-# Replacing quotes for Test-Path
-$ImportPath = $ImportPath.replace('"','')
-
-if(!(Test-Path "$ImportPath")){
-
-Write-Host "Import Path for JSON file doesn't exist..." -ForegroundColor Red
-Write-Host "Script can't continue..." -ForegroundColor Red
-Write-Host
-break
-
+# Assuming a valid JSON config can be found at C:\temp\MDMProfile.json
+# Set the path to that JSON in a variables
+JSONConfig = "C:\temp\MDMProfile.json"
+# Execute the script with parameters for that profile and authentication
+Import-MDMDeviceConfigJSON.ps1 -filename $JSONConfig -tenant contoso.com -AppId "0000-0000000-0000000-00000-0000" -certThumbprint AHG4587JDHFNMMN587MNSJHJFMN48762MN
 }
 ```
 
