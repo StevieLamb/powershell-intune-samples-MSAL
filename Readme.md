@@ -15,7 +15,9 @@ noDependencies: true
 ---
 # Intune Graph Samples
 
-This repository of PowerShell sample scripts show how to access Intune service resources.  They demonstrate this by making HTTPS RESTful API requests to the Microsoft Graph API from PowerShell.
+This repository of PowerShell sample scripts show how to access Intune service resources - using MSAL instead of ADAL for authentication. They demonstrate this by making HTTPS RESTful API requests to the Microsoft Graph API from PowerShell using the MSAL.PS module to assist with AuthN and AuthZ.
+
+At this time only DeviceConfiguration scripts are being amended to use MSAL.PS.
 
 Documentation for Intune and Microsoft Graph can be found here [Intune Graph Documentation](https://docs.microsoft.com/en-us/graph/api/resources/intune-graph-overview?view=graph-rest-1.0).
 
