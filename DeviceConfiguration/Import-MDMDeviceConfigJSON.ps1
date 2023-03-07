@@ -66,11 +66,9 @@ function MSALAuth {
         Requires the module MSAL.PS
         
         .PARAMETER tenantID
-        Default is WL tenant
         The tenant ID or DNS name of the tenant to target
 
         .PARAMETER clientID
-        Default iS the id for "WL ID and Collab API-Based reporting"
         The ID of the application to use
 
         .PARAMETER thumbprint
