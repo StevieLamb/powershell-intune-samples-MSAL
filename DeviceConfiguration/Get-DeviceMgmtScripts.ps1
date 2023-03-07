@@ -1,7 +1,7 @@
 ﻿
 <#
 
-Modified version of script found at
+    Modified version of script found at
     https://github.com/microsoftgraph/powershell-intune-samples/blob/master/DeviceConfiguration/DeviceManagementScripts_Get.ps1
 
     .DESCRIPTION
